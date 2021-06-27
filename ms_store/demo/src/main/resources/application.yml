@@ -1,0 +1,15 @@
+spring:
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: 13.124.74.82:9092
+                    zkNodes: 13.124.74.82:2181
+            function:
+                definition: getOrder;
+            bindings: 
+                getOrder-in-0.destination : store-topic
+server.port : 9999
+                    
+            
+              

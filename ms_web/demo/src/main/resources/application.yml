@@ -1,0 +1,16 @@
+spring:
+    cloud:
+        stream:
+            kafka:
+                binder:
+                    brokers: 13.124.74.82:9092
+                    zkNodes: 13.124.74.82:2181
+            function:
+                definition: sendMemberInfo; # sendStoreInfo
+            bindings :
+                sendMemberInfo-out-0:
+                    destination : memberordertopic
+                sendStoreInfo:
+                    destination : store-topic
+            poller:
+                fixed-delay: 500000
