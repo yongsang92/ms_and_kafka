@@ -1,10 +1,14 @@
 package com.example.demo.Controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Supplier;
 
+import com.example.demo.Entity.Address;
 import com.example.demo.Entity.Member;
 import com.example.demo.Entity.SessionMember;
+import com.example.demo.Entity.Store;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -24,7 +28,7 @@ public class MainController {
 
     private final Supplier sendMemberInfo;
     private final StreamBridge streamBridge;
-    private final ObjectMapper oMapper;
+    private final ObjectMapper mapper;
 
 
     @PostMapping("order/{userId}/{storeId}")
@@ -37,8 +41,22 @@ public class MainController {
 
         //1. 카프카에게 메시지를 발행하는것 부터 해보자
 
-        streamBridge.send("sendStoreInfo",new Member(1l,"aladin","india"));
- 
+        // streamBridge.send("sendStoreInfo",new Member(1l,"shakira",new Address("NY")));
+
+        List<Address> ads=new ArrayList<>();
+
+
+        Store store=new Store();
+
+        for (int i = 0; i < 10; i++) {
+            ads.add(new Address("NY AP "+i));
+        }
+        store.list=ads;
+        streamBridge.send("sendStoreInfo",store);
+
+        // streamBridge.send("sendStoreInfo",ads);
+
+
     
         return sendMemberInfo.get().toString();
 

@@ -1,12 +1,32 @@
 package com.example.demo.Message;
 
-import lombok.Data;
+import java.io.Serializable;
 
-@Data
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
+
+
+
+// @Data
+// public class Member {
+//     Long id;
+
+//     String name;
+
+//     Address address;
+// }
+
+
+@ToString@Getter@Setter
+@NoArgsConstructor@AllArgsConstructor
 public class Member {
     Long id;
 
     String name;
 
-    String address;
+    Address address;
 }

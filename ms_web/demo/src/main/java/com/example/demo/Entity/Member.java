@@ -1,9 +1,11 @@
 package com.example.demo.Entity;
 
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 
 @Entity
@@ -16,13 +18,16 @@ public class Member {
 
     String name;
 
-    String address;
+
+    @Embedded
+    Address address;
+
 
 
     public Member() {
     }
 
-    public Member(Long i, String name, String address) {
+    public Member(Long i, String name, Address address) {
         this.id = i;
         this.name = name;
         this.address = address;
@@ -38,7 +43,7 @@ public class Member {
         return this.name;
     }
 
-    public String getAddress() {
+    public Address getAddress() {
         return this.address;
     }
 

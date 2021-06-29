@@ -11,7 +11,7 @@ public class SessionMember implements Serializable {
 
     String name;
 
-    String address;
+    Address address;
 
     public SessionMember(){
         
