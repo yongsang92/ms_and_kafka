@@ -6,9 +6,12 @@ spring:
                     brokers: 13.124.74.82:9092
                     zkNodes: 13.124.74.82:2181
             function:
-                definition: getOrder;
-            bindings: 
-                getOrder-in-0.destination : store-topic
+                definition: orderMessage;
+            bindings:
+                orderMessage-in-0:
+                    destination : orderMessage-topic
+                orderMessageResult :
+                   destination : orderMessageResult-topic
 server.port : 9999
                     
             

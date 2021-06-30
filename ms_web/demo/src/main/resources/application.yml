@@ -6,11 +6,11 @@ spring:
                     brokers: 13.124.74.82:9092
                     zkNodes: 13.124.74.82:2181
             function:
-                definition: sendMemberInfo; # sendStoreInfo
+                definition: orderMessageResult;
             bindings :
-                sendMemberInfo-out-0:
-                    destination : memberordertopic
-                sendStoreInfo:
-                    destination : store-topic
+                orderMessage :
+                    destination : orderMessage-topic
+                orderMessageResult-in-0:
+                    destination : orderMessageResult-topic
             poller:
                 fixed-delay: 500000
