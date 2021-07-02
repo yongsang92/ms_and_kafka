@@ -12,6 +12,8 @@ spring:
                     destination : orderMessage-topic
                 orderMessageResult :
                    destination : orderMessageResult-topic
+
+
 server.port : 9999
                     
             

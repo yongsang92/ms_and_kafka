@@ -20,7 +20,6 @@ public class TransactionService {
 
  
     public void takeOrder(OrderMessageDto dto) {
-        // streamBridge.send("orderMessageResult",Integer.valueOf(10));
         streamBridge.send("orderMessageResult",new OrderMessageDto("a","b"));
 
         System.out.println("this is service layer");

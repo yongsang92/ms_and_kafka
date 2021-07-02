@@ -12,5 +12,6 @@ spring:
                     destination : orderMessage-topic
                 orderMessageResult-in-0:
                     destination : orderMessageResult-topic
+            
             poller:
                 fixed-delay: 500000
